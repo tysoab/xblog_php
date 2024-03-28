@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.3;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f4f0f0;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: rgb(32, 33, 48);
+  color: #f4f0f0;
+}
+
+.container main {
+  position: absolute;
+  left: 15%;
+  top: 0;
+  width: 85%;
+  min-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.hidden {
+  display: none;
+}
+.container .toggle-aside {
+  width: 5%;
+}
+.container .toggle-main {
+  width: 95%;
+  left: 5%;
+}
+.container .toggle-logo a {
+  font-size: 1.2rem;
+}
+
+/*------------aside-----------*/
+
+aside .logo {
+  padding: 7px 0;
+  text-align: center;
+}
+
+aside .logo a {
+  text-decoration: none;
+  color: #f4f0f0;
+  font-size: 1.6rem;
+}
+
+aside .logo a small {
+  color: #079db0;
+}
+
+aside H6 {
+  color: #aaa5a5;
+  padding: 10px 10px;
+  font-size: 10px;
+}
+
+aside .dashboard {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+aside .dashboard li,
+aside ul li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 7px 10px;
+  color: #e6e0e0;
+  position: relative;
+}
+
+aside ul {
+  margin: 30px 0;
+}
+
+aside ul li a,
+aside ul li i {
+  color: #aaa5a5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+aside ul li:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 1.5s ease-in-out;
+}
+
+aside ul li .link-icon {
+  position: absolute;
+  right: 10%;
+}
+
+/*----- main------------*/
+
+main nav {
+  background-color: #efe8e8;
+  padding: 8px 20px;
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 100;
+}
+
+main nav .toggle-container {
+  cursor: pointer;
+}
+
+.user-profile-container {
+  position: relative;
+}
+
+.user-icon {
+  cursor: pointer;
+}
+
+.user-icon img {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #e6e0e0;
+  border-radius: 100%;
+  /* object-fit: cover; */
+}
+
+.user-profile-card {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #efe8e8;
+  min-width: 150px;
+  min-height: 130px;
+  border-radius: 8px;
+  box-shadow: 0px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 110;
+  display: none;
+  transition: all 3.5s ease-in-out;
+}
+
+.show-profile {
+  display: block;
+}
+
+.user-profile-card h4 {
+  border-bottom: 2px solid #aaa5a5;
+  padding: 20px;
+  color: #aaa5a5;
+}
+
+.user-profile-card ul {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.user-profile-card ul li {
+  padding: 10px 20px;
+}
+
+.user-profile-card ul li a {
+  text-decoration: none;
+  color: #079db0;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.user-profile-card ul li .logout {
+  color: #e21e1e;
+}
+
+.user-profile-card ul li:hover {
+  background-color: #aaa5a5;
+  transition: background-color 1.5s linear;
+}
+
+.header-overview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+
+.header-overview .right {
+  color: #079db0;
+  font-size: 15px;
+}
+
+.header-overview .right span {
+  color: #aaa5a5;
+}
+
+.wrapper .report-card {
+  padding: 0 5%;
+  margin: 50px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.wrapper .report-card .card {
+  border: 4px solid #efe8e8;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  padding: 20px 5%;
+  border-radius: 20px;
+  border-left: 10px outset #079db0;
+  cursor: pointer;
+}
+
+.wrapper .report-card .card:nth-child(even) {
+  border-left-color: #e21e1e;
+}
+
+.wrapper .report-card .card h4 {
+  color: #079db0;
+  font-weight: 600;
+}
+
+.wrapper .report-card .card .stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper .report-card .card .stats .count {
+  font-size: 2rem;
+  color: #aaa5a5;
+}
+
+.wrapper .report-card .card .stats i {
+  font-size: 3rem;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+/***********error msg***/
+
+.error-msg,
+.success-msg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #f03333;
+  padding: 17px 5%;
+  font-size: 20px;
+  color: #f4f0f0;
+  transition: all 5.75s ease-in-out;
+
+  z-index: 200;
+}
+
+.success-msg {
+  background-color: #07b536;
+}
