@@ -1,5 +1,6 @@
 <?php 
       require './script/login_session.php';
+      include __DIR__ .'/script/index_script.php';
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,6 @@
 
   <main>
     <?php include __DIR__ . '/navbar.php'; ?>
-    <?php include __DIR__ .'/script/index_script.php' ?>
 
     <div class="header-overview">
       <div class="left">Dashboard</div>
@@ -51,7 +51,9 @@
         <div class="card">
           <h4>Comments</h4>
         <div class="stats">
-          <div class="count">6</div>
+          <div class="count">
+            <?= $commentCounts ?? 0 ?>
+          </div>
           <i class="fa-regular fa-file-lines"></i>
         </div>
         </div>

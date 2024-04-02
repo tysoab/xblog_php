@@ -1,4 +1,6 @@
 <?php
+
+include __DIR__ . '/script/login_session.php';
 $email = 'tysoab@gmail.com';
 $password = password_hash('0987', PASSWORD_DEFAULT);
 

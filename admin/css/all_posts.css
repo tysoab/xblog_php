@@ -1,0 +1,82 @@
+.post-container {
+  padding: 40px 7%;
+}
+.change-rows .form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.change-rows label {
+  color: rgb(32, 33, 48);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.change-rows .form-group select {
+  padding: 5px 10px;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 1.5px solid #aaa5a5;
+  outline: none;
+  caret-color: #aaa5a5;
+  color: #079db0;
+  font-weight: 500;
+}
+
+.all-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 40px;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+.all-posts .post-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: #079db0 3px ridge;
+  padding: 10px;
+}
+
+.all-posts .post-wrap:last-child {
+  border-bottom: 0;
+}
+
+.post-wrap .post-img img {
+  width: 50px;
+  border-radius: 4px;
+}
+
+.post-wrap .post-title {
+  flex: 1;
+}
+
+.post-wrap .control-actions {
+  width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0px solid #079db0;
+}
+
+.post-wrap .control-actions a,
+.post-wrap .control-actions button {
+  padding: 6px 15px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 2px;
+  background-color: #079db0;
+  color: #f8f8f8;
+  border: 0;
+  cursor: pointer;
+}
+
+.post-wrap .control-actions .del-post {
+  background-color: #eb2828;
+}

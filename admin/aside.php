@@ -28,7 +28,7 @@
       <li>
         <i class="fa-solid fa-square-up-right"></i>
         <div class="colapse">
-          <a href="">All post</a>
+          <a href="./all_posts.php">All post</a>
         </div>
         <i class="fa-solid fa-chevron-right link-icon"></i>
       </li>

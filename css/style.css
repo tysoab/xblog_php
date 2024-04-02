@@ -1,0 +1,378 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.3;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: #f9f9f9;
+  font-weight: 500;
+}
+
+body {
+  background-color: #110326;
+  font-family: "Roboto", sans-serif;
+  color: #f9f9f9;
+}
+
+/*###############loader*##########*/
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f9fb;
+  transition: opacity 0.75s, visibility 0.75s;
+  z-index: 1000;
+}
+
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: "";
+  width: 60px;
+  height: 60px;
+  border: 10px solid #dddddd;
+  border-top-color: #110326;
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/*###############loader*##########*/
+
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8%;
+  background-color: #110326;
+  z-index: 100;
+}
+
+header .logo a {
+  font-size: 1.7rem;
+  color: rgb(226, 104, 17);
+}
+
+header .logo a span {
+  color: #f9f9f9;
+}
+
+header .toggle-menu {
+  display: none;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+header nav li {
+  list-style: none;
+}
+header nav li a {
+  font-size: 18px;
+}
+
+header nav .code-tips {
+  color: #a478ff;
+}
+
+header .search-container {
+  margin-left: 20px;
+}
+header .search-container button {
+  background-color: #a478ff;
+  color: #f9f9f9;
+  font-size: 20px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  animation: buttonAni 0.7s ease infinite;
+}
+
+header .search-container button:hover {
+  background-color: #8f5fef;
+  transition: background-color 1.5s ease-in-out;
+}
+
+/*animationkey*/
+@keyframes buttonAni {
+  from {
+    background-color: #a478ff;
+  }
+  to {
+    background-color: rgb(226, 104, 17);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+/*-----------------main---------------*/
+
+main {
+  margin-top: 70px;
+  padding: 0 15%;
+}
+
+section {
+  margin-bottom: 70px;
+}
+
+main .hero {
+  text-align: center;
+  padding: 0 20px;
+}
+
+main .hero h2 {
+  font-size: 50px;
+  text-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+}
+
+main .hero p {
+  color: rgb(226, 104, 17);
+  font-size: 1.5rem;
+}
+
+.post-container .post-wrap {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: #191420;
+  box-shadow: 0 0 8px #a478ff;
+  border-radius: 8px;
+
+  margin-bottom: 40px;
+}
+
+.post-wrap .post-img img {
+  width: 300px;
+  height: 200px;
+  border-radius: 6px 0 0 6px;
+  object-fit: cover;
+}
+
+.post-wrap .post-stats h4 {
+  color: rgb(226, 104, 17);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.post-wrap .post-stats .post-date {
+  background-color: #c8b9e5;
+  width: 200px;
+  text-align: center;
+  color: #110326;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.post-wrap .post-stats .post-desc {
+  color: #c8b9e5;
+  font-size: 15px;
+}
+
+/*################footer####################*/
+
+footer {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0 7%;
+}
+
+.foot-1 {
+  border-top: 2px solid #a478ff;
+  padding: 20px 0;
+
+  font-weight: 500;
+  text-align: center;
+}
+
+.foot-1 p {
+  color: #c8b9e5;
+}
+
+.foot-1 p small {
+  color: rgb(226, 104, 17);
+  font-size: 1rem;
+}
+
+.foot-nav {
+  padding: 30px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*______newletter email check_______*/
+.validate-n-email {
+  margin-top: 5px;
+  color: rgb(237, 120, 120);
+  font-size: 1.1rem;
+}
+
+.subscribe .form-group {
+  display: flex;
+  align-items: center;
+  border: 2px solid #8f5fef;
+
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.subscribe .form-group button {
+  background-color: #8f5fef;
+  color: #f9f9f9;
+  border: 0;
+  padding: 7px 25px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.subscribe h4 {
+  color: rgb(226, 104, 17);
+}
+
+.subscribe .form-group input {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  padding: 0 5px;
+  padding-right: 20px;
+  font-size: 18px;
+  caret-color: #c8b9e5;
+  color: #f9f9f9;
+}
+
+.social-links {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links h6 {
+  color: #cfcaca66;
+}
+
+.social-links .links a {
+  font-size: 1.2rem;
+  color: #cfcaca66;
+}
+
+.social-links .links a:hover {
+  color: #8f5fef;
+  transition: color 0.8s linear;
+}
+
+@media (max-width: 700px) {
+  header .toggle-menu {
+    display: block;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  header nav {
+    flex-direction: column;
+    border: 0px solid #8f5fef;
+    background-color: #110326;
+    position: fixed;
+    top: 45px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 7%;
+    align-items: normal;
+    z-index: 101;
+    display: none;
+    transition: all 1.8s ease-in-out;
+  }
+
+  header .show-nav {
+    display: flex;
+  }
+
+  header nav .search-container {
+    margin-left: 0;
+  }
+
+  main {
+    padding: 0 7%;
+  }
+
+  .post-container .post-wrap {
+    flex-direction: column;
+    align-items: normal;
+  }
+  .post-wrap .post-img img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .post-wrap .post-stats {
+    padding: 0 10px;
+    padding-bottom: 20px;
+  }
+
+  .post-wrap .post-stats .post-desc {
+    font-size: 13px;
+  }
+  .post-wrap .post-stats .post-date {
+    font-size: 14px;
+  }
+  .post-wrap .post-stats h4 {
+    font-size: 1.1rem;
+  }
+
+  main .hero h2 {
+    font-size: 1.3rem;
+  }
+
+  .foot-nav {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .subscribe .form-group {
+    flex-direction: column;
+    align-items: normal;
+    gap: 15px;
+  }
+
+  .subscribe .form-group button {
+    flex: 1;
+  }
+}
