@@ -14,7 +14,7 @@
   <script src="https://kit.fontawesome.com/dad8ebce2d.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/newpost.css">
-  <title>Admin panel</title>
+  <title>Admin panel | New post</title>
 </head>
 <body>
 

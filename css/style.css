@@ -204,6 +204,31 @@ main .hero p {
   font-size: 15px;
 }
 
+/*_____________pre next button_______________*/
+
+.prev-next-btn {
+  position: relative;
+  padding: 20px 0;
+}
+
+.prev-next-btn button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 6px 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 0;
+  color: #ccc;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.prev-next-btn .next-btn {
+  left: unset;
+  right: 0;
+}
+
 /*################footer####################*/
 
 footer {
@@ -240,6 +265,23 @@ footer {
   margin-top: 5px;
   color: rgb(237, 120, 120);
   font-size: 1.1rem;
+}
+
+.subscribe {
+  position: relative;
+}
+.newsletter-suc {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 15px;
+  border-radius: 3px;
+  background-color: rgb(48, 126, 48);
+  color: #f9f9f9;
+  font-size: 1rem;
+  z-index: 300;
+  transition: display 3s ease-in-out;
 }
 
 .subscribe .form-group {

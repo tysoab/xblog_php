@@ -1,5 +1,6 @@
 const toggleMenu = document.querySelector(".toggle-menu");
 const newsletterForm = document.querySelector("#newsletter-form");
+const newsletterSuc = document.querySelector(".newsletter-suc");
 
 toggleMenu.addEventListener("click", () =>
   document.querySelector("header nav").classList.toggle("show-nav")
@@ -9,9 +10,7 @@ window.addEventListener("load", () => {
   const loader = document.querySelector(".loader");
   loader.classList.add("loader-hidden");
 
-  // loader.addEventListener("transitionend", () =>
-  //   document.body.removeChild("loader")
-  // );
+  // loader.addEventListener("transitionend", () => loader.remove());
 });
 
 newsletterForm.addEventListener("submit", async (e) => {
@@ -43,3 +42,8 @@ newsletterForm.addEventListener("submit", async (e) => {
 
   newsletterForm.submit();
 });
+
+// remove newsletter success element
+setTimeout(() => {
+  newsletterSuc.remove();
+}, 2000);

@@ -14,7 +14,7 @@
   <script src="https://kit.fontawesome.com/dad8ebce2d.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/all_posts.css">
-  <title>Admin panel</title>
+  <title>Admin panel | Subscribers</title>
 </head>
 <body>
 
@@ -28,7 +28,7 @@
       <div class="left">Dashboard</div>
 
       <div class="right">
-        Blog management / Admin / <span>All post</span> 
+        Blog management / Admin / <span>Subscribers</span> 
       </div>
     </div>
 
@@ -48,21 +48,20 @@
           
         </div>
 
-        <div class="all-posts">
-          <!-- <div class="post-wrap">
-            <div class="post-img">
-              <img src="./uploadFile/xblog_1711609115.JPG" alt="title">
-            </div>
+        <div class="subscribers">
+          
+          <div class="subscriber-wrap">
 
-            <div class="post-title">
-              <h4>post title</h4>
+            <div class="subscriber-email">
+              <h4>tysoab@gmail.com</h4>
             </div>
+            
 
             <div class="control-actions">
-              <a href="" class="edit-post">Update</a>
-              <a href="" class="del-post">Delete</a>
+              
+              <a href="" class="del-subscriber">Delete</a>
             </div>
-          </div> -->
+          </div>
         </div>
 
         <div class="prev-next-btn">

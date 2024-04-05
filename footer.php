@@ -19,11 +19,14 @@
         </div>
       </div>
       <div class="subscribe">
+        <?php require __DIR__ . '/script/newsletter_script.php'; ?>
+        <?php if($newsletter_suc):?>
+          <div class="newsletter-suc">👍 Successful</div>
+        <?php endif?>
         <h4>Subscribe to our newsletter</h4>
-        
         <form action="" method="POST" id="newsletter-form">
           <div class="form-group">
-            <input type="email" placeholder="Email Address" name="newsletter-email">
+            <input type="email" placeholder="Email Address" name="newsletter-email" value="<?= $_POST['newsletter-email'] ?? '' ?>">
             <button type="submit">Subscribe</button>
           </div>
         </form>

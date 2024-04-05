@@ -1,57 +1,75 @@
 const postContainer = document.querySelector(".post-container");
 const postComments = document.querySelector(".comment-container");
+const prevNextContainer = document.querySelector(".prev-next-btn");
+const postsContainer = document.querySelector(".posts-container");
 
-if (postComments) {
-  async function fetchComments() {
+let pageLength = null;
+let start = 0;
+let end = postComments
+  ? (perPage = 3)
+  : postsContainer
+  ? (perPage = 5)
+  : (perPage = 3);
+
+async function fetchComments() {
+  if (postComments) {
     const listContainer = postComments.querySelector("ul");
     const fileterID = postComments.dataset.postid;
-    console.log(fileterID);
     let markup = "";
-    const res = await fetch(
-      "script/getComments.php?post_id=" + encodeURIComponent(fileterID)
-    );
+
+    const res = await fetch(`script/getComments.php?postId=${fileterID}`);
+
     if (!res.ok) return;
-    console.log(res);
     const data = await res.json();
     if (!data) return;
-    console.log(data);
-
+    pageLength = data.comment.length;
+    console.log(pageLength, end);
     data.comment
       .sort((a, b) => b.id - a.id)
+      .slice(start, end)
       .forEach(
-        (comment) =>
+        (com) =>
           (markup += `
-        <li>
+      <li>
       <div class="user-icon">
         <i class="fa-solid fa-user-plus"></i>
       </div>
       <div class="user-details">
-        <h4>${comment.name}</h4>
-        <p>${comment.date}</p>
+        <h4>${com.name}</h4>
+        <p>${com.date}</p>
       </div>
 
       <div class="user-comment">
-        <p>${comment.comment}</p>
+        <p>${com.comment}</p>
       </div>
     </li>
       `)
       );
 
+    preNextCondition();
     listContainer.innerHTML = markup;
   }
-  fetchComments();
+}
+fetchComments();
+
+// want to reuse this
+async function getPosts() {
+  const res = await fetch("script/getPosts.php");
+  if (!res.ok) return;
+  const data = await res.json();
+
+  if (data) return data.post;
 }
 
-if (postContainer) {
-  async function fetchPost() {
+async function fetchPost() {
+  if (postContainer) {
     let markup = "";
-    const res = await fetch("script/getPosts.php");
-    if (!res.ok) return;
-    const data = await res.json();
-    if (!data) return;
+    const posts = await getPosts();
 
-    data.post
+    pageLength = posts.length;
+    posts
       .sort((a, b) => b.id - a.id)
+      .slice(start, end)
       .forEach((post) => {
         markup += `
       <a href="post-detail.php?title=${post.title}">
@@ -74,8 +92,77 @@ if (postContainer) {
     `;
       });
 
+    preNextCondition();
     postContainer.innerHTML = markup;
   }
+}
+fetchPost();
 
-  fetchPost();
+async function fetchPosts() {
+  if (postsContainer) {
+    let markup = "";
+    const posts = await getPosts();
+
+    pageLength = posts.length;
+    posts
+      .sort((a, b) => b.id - a.id)
+      .slice(start, end)
+      .forEach((post) => {
+        markup += `
+      <li class="post-wrap">
+       <a href="post-detail.php?title=${post.title}">
+         <div class="post-img">
+          <img src="./admin/uploadFile/${post.upload_file}" alt="${post.title}">
+        </div>
+
+        <div class="post-stats">
+          <h4>${post.title}</h4>
+            <p>${post.content.slice(0, 120)}...</p>
+        </div>
+       </a>
+      </li>
+    `;
+      });
+    preNextCondition();
+    postsContainer.innerHTML = markup;
+  }
+}
+fetchPosts();
+
+function preBtn() {
+  prevNextContainer.innerHTML = `<button class="prev-btn">Prev</button>`;
+}
+function nextBtn() {
+  prevNextContainer.innerHTML = `<button class="next-btn">Next</button>`;
+}
+function preNextBtn() {
+  prevNextContainer.innerHTML = `
+  <button class="prev-btn">Prev</button>
+  <button class="next-btn">Next</button>
+  `;
+}
+
+prevNextContainer.addEventListener("click", (e) => {
+  // console.log(e.target);
+  const prev = e.target.closest(".prev-btn");
+  const next = e.target.closest(".next-btn");
+  if (next) {
+    start += perPage;
+    end += perPage;
+    postComments ? fetchComments() : postContainer ? fetchPost() : fetchPosts();
+    return;
+  }
+  if (prev) {
+    start -= perPage;
+    end -= perPage;
+    postComments ? fetchComments() : postContainer ? fetchPost() : fetchPosts();
+    return;
+  }
+});
+
+// pre next condition
+function preNextCondition() {
+  if (end > pageLength && pageLength !== 0) preBtn();
+  if (end < pageLength && start === 0) nextBtn();
+  if (end < pageLength && start !== 0) preNextBtn();
 }

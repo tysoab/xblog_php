@@ -77,7 +77,7 @@ comment();
   
 </section>
 
-<section class="comment-container" data-postId="<?php echo $data['post_id'] ?>">
+<section class="comment-container" data-postId="<?=$data['post_id'] ?>">
   <div><?=$commentStat ?></div>
   <h4>Comment(s)</h4>
   <ul>
@@ -112,6 +112,8 @@ comment();
       </div>
     </li>
   </ul>
+
+  <div class="prev-next-btn"></div>
 </section>
 
   </main>

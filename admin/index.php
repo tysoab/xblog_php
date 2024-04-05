@@ -60,7 +60,7 @@
         <div class="card">
           <h4>Subscriber</h4>
         <div class="stats">
-          <div class="count">6</div>
+          <div class="count"><?=$subscriberCounts ?? 0?></div>
           <i class="fa-regular fa-file-lines"></i>
         </div>
         </div>
