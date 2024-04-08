@@ -14,4 +14,13 @@
       </div>
     </nav>
 
+    <div class="search-modal">
+      <form action="./search-result.php" method="POST">
+        <div class="form-group">
+        <input type="text" name="search-query" placeholder="Search...">
+        <button>Search</button>
+      </div>
+      </form>
+    </div>
+
   </header>

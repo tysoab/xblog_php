@@ -17,6 +17,10 @@ a {
   font-weight: 500;
 }
 
+li {
+  list-style: none;
+}
+
 body {
   background-color: #110326;
   font-family: "Roboto", sans-serif;
@@ -340,11 +344,73 @@ footer {
   transition: color 0.8s linear;
 }
 
+/* search -modal*/
+
+header .search-modal {
+  position: absolute;
+  top: -250%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 2px solid #8f5fef;
+  background-color: #110326;
+  padding: 30px;
+  z-index: 300;
+  transition: top 0.74s ease-in-out;
+}
+
+.search-modal .form-group {
+  display: flex;
+  align-items: center;
+  border: 2px ridge #945fef;
+  border-radius: 4px;
+}
+
+.search-modal .form-group input {
+  padding: 6px 10px;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  border-radius: 4px 0 0 4px;
+  font-size: 1.1rem;
+  color: #fff;
+  width: 350px;
+  letter-spacing: 1px;
+}
+
+.search-modal .form-group button {
+  padding: 7.5px 20px;
+  background-color: #945fef;
+  border: 0;
+  color: #fff;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  border-radius: 0 2px 2px 0;
+  cursor: pointer;
+}
+
+.search-modal .form-group button:hover {
+  background-color: #8c52f0;
+  transition: background-color 0.5s ease-in-out;
+}
+
 @media (max-width: 700px) {
   header .toggle-menu {
     display: block;
     font-size: 20px;
     cursor: pointer;
+  }
+
+  .search-modal .form-group input {
+    width: auto;
+  }
+
+  .search-modal .form-group input,
+  .search-modal .form-group button {
+    font-size: 1rem;
   }
 
   header nav {

@@ -2,12 +2,16 @@ const postContainer = document.querySelector(".post-container");
 const postComments = document.querySelector(".comment-container");
 const prevNextContainer = document.querySelector(".prev-next-btn");
 const postsContainer = document.querySelector(".posts-container");
+const searchQuery = document.querySelector("#search-query");
+const searchEl = document.querySelector(".search-el");
 
 let pageLength = null;
 let start = 0;
 let end = postComments
   ? (perPage = 3)
   : postsContainer
+  ? (perPage = 5)
+  : searchEl
   ? (perPage = 5)
   : (perPage = 3);
 
@@ -23,7 +27,7 @@ async function fetchComments() {
     const data = await res.json();
     if (!data) return;
     pageLength = data.comment.length;
-    console.log(pageLength, end);
+
     data.comment
       .sort((a, b) => b.id - a.id)
       .slice(start, end)
@@ -129,6 +133,50 @@ async function fetchPosts() {
 }
 fetchPosts();
 
+async function searchResults() {
+  let markup = "";
+  if (searchEl) {
+    const res = await fetch(
+      `script/search_script.php?query=${searchQuery.value}`
+    );
+    if (!res.ok) return;
+    const data = await res.json();
+    const { search } = data;
+
+    const posts = [];
+    for (let key in search) {
+      posts.push(search[key]);
+    }
+
+    pageLength = posts.length;
+    posts
+      .sort((a, b) => b.id - a.id)
+      .slice(start, end)
+      .forEach(
+        (post) =>
+          (markup += `
+      <li class="post-wrap">
+       <a href="post-detail.php?title=${post.title}">
+         <div class="post-img">
+          <img src="./admin/uploadFile/${post.upload_file}" alt="${post.title}">
+        </div>
+
+        <div class="post-stats">
+          <h4>${post.title}</h4>
+            <p>${post.content.slice(0, 120)}...</p>
+        </div>
+       </a>
+      </li>
+      `)
+      );
+
+    preNextCondition();
+    searchEl.innerHTML = markup;
+  }
+}
+
+searchResults();
+
 function preBtn() {
   prevNextContainer.innerHTML = `<button class="prev-btn">Prev</button>`;
 }
@@ -149,13 +197,25 @@ prevNextContainer.addEventListener("click", (e) => {
   if (next) {
     start += perPage;
     end += perPage;
-    postComments ? fetchComments() : postContainer ? fetchPost() : fetchPosts();
+    postComments
+      ? fetchComments()
+      : postContainer
+      ? fetchPost()
+      : searchEl
+      ? searchResults()
+      : fetchPosts();
     return;
   }
   if (prev) {
     start -= perPage;
     end -= perPage;
-    postComments ? fetchComments() : postContainer ? fetchPost() : fetchPosts();
+    postComments
+      ? fetchComments()
+      : postContainer
+      ? fetchPost()
+      : searchEl
+      ? searchResults()
+      : fetchPosts();
     return;
   }
 });

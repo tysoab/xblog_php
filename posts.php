@@ -16,6 +16,7 @@
   <main>
 
     <section>
+      <h2>All posts:</h2>
       <ul class="posts-container">
       <li class="post-wrap">
        <a href="">

@@ -1,6 +1,23 @@
 const toggleMenu = document.querySelector(".toggle-menu");
 const newsletterForm = document.querySelector("#newsletter-form");
 const newsletterSuc = document.querySelector(".newsletter-suc");
+const searchModal = document.querySelector(".search-modal");
+const searchModalBtn = document.querySelector(".search-modal form");
+const toggleSearch = document.querySelector(".search-container button");
+
+let trackModal = false;
+
+toggleSearch.addEventListener("click", () => {
+  searchModal.style.top = !trackModal ? "40px" : "-240%";
+  trackModal = !trackModal;
+});
+
+searchModalBtn.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const query = e.target.querySelector("input");
+  if (!query.value) return;
+  searchModalBtn.submit();
+});
 
 toggleMenu.addEventListener("click", () =>
   document.querySelector("header nav").classList.toggle("show-nav")

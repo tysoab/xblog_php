@@ -1,7 +1,13 @@
-.posts-container .post-wrap {
+.posts-container,
+.search-el {
+  margin-top: 20px;
+}
+.posts-container .post-wrap,
+.search-el .post-wrap {
   list-style: none;
 }
-.posts-container .post-wrap a {
+.posts-container .post-wrap a,
+.search-el .post-wrap a {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -11,7 +17,8 @@
   border-radius: 5px;
 }
 
-.posts-container .post-wrap a:hover {
+.posts-container .post-wrap a:hover,
+.search-el .post-wrap a:hover {
   background-color: #5855552d;
   transition: background-color 0.5s ease-in-out;
 }
